@@ -5,8 +5,19 @@
 using namespace std;
 using namespace std::chrono;
 
-int main() {
-    int N = 1000;
+int main(int argc, char **argv) {
+
+    if (argc < 2) {
+        cerr << "Debes introducir el tamaño de la matriz cuadrada, entre 500, 1000 y 2000" << endl;
+        return -1;
+    }
+
+    int N = atoi(argv[1]);
+
+    if (N!=500 && N!=1000 && N!=2000) {
+        cerr << "El tamaño debe ser 500, 1000 o 2000" << endl;
+        return -1;
+    }
 
     // Creamos la matriz como un array de punteros (Matriz real i,j)
     double** A = new double*[N];
@@ -45,6 +56,7 @@ int main() {
     auto duration = duration_cast<milliseconds>(stop - start);
 
     cout << "Tiempo: " << duration.count() << " ms" << endl;
+
 
     // Liberar memoria (Importante en C++)
     for (int i = 0; i < N; ++i) {
