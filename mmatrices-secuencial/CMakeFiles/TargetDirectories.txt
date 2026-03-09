@@ -1,0 +1,3 @@
+/home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles/Trabajo_Grupo.dir
+/home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles/edit_cache.dir
+/home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles/rebuild_cache.dir

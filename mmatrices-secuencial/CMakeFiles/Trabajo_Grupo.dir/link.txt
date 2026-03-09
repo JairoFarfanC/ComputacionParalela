@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/Trabajo_Grupo.dir/link.d CMakeFiles/Trabajo_Grupo.dir/main.cpp.o -o Trabajo_Grupo
