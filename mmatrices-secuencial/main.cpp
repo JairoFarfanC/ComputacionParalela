@@ -1,51 +1,56 @@
 #include <iostream>
 #include <vector>
-#include <chrono> // Para medir el tiempo con precisión
+#include <chrono>
 
 using namespace std;
 using namespace std::chrono;
 
-// Función para inicializar matrices con valores aleatorios
-void inicializar(vector<double>& M, int N) {
-    for (int i = 0; i < N * N; ++i) {
-        M[i] = (double)(rand() % 10);
-    }
-}
-
 int main() {
-    int N = 1000; // Prueba con 500, 1000, 2000 según tu enunciado
+    int N = 1000;
 
-    // Usamos vectores para manejar la memoria dinámicamente
-    vector<double> A(N * N);
-    vector<double> B(N * N);
-    vector<double> C(N * N, 0.0);
+    // Creamos la matriz como un array de punteros (Matriz real i,j)
+    double** A = new double*[N];
+    double** B = new double*[N];
+    double** C = new double*[N];
 
-    inicializar(A, N);
-    inicializar(B, N);
+    for (int i = 0; i < N; ++i) {
+        A[i] = new double[N];
+        B[i] = new double[N];
+        C[i] = new double[N];
+    }
 
-    cout << "Multiplicando matrices de tamaño " << N << "x" << N << "..." << endl;
-
-    // --- Inicio de la medición ---
-    auto start = high_resolution_clock::now();
-
-    // Algoritmo Secuencial Clásico (Tres bucles i, j, k)
+    // Inicialización (Ejemplo con valores 1.0)
     for (int i = 0; i < N; ++i) {
         for (int j = 0; j < N; ++j) {
-            double suma = 0.0;
+            A[i][j] = 1.0;
+            B[i][j] = 2.0;
+            C[i][j] = 0.0;
+        }
+    }
+
+    cout << "Multiplicando matrices (formato Matriz[i][j])..." << endl;
+
+    auto start = high_resolution_clock::now();
+
+    // --- ALGORITMO SECUENCIAL CLÁSICO ---
+    for (int i = 0; i < N; ++i) {
+        for (int j = 0; j < N; ++j) {
             for (int k = 0; k < N; ++k) {
-                // Acceso indexado: Fila i, Columna k * Fila k, Columna j
-                suma += A[i * N + k] * B[k * N + j];
+                C[i][j] += A[i][k] * B[k][j];
             }
-            C[i * N + j] = suma;
         }
     }
 
     auto stop = high_resolution_clock::now();
-    // --- Fin de la medición ---
-
     auto duration = duration_cast<milliseconds>(stop - start);
 
-    cout << "Tiempo de ejecución secuencial: " << duration.count() << " ms" << endl;
+    cout << "Tiempo: " << duration.count() << " ms" << endl;
+
+    // Liberar memoria (Importante en C++)
+    for (int i = 0; i < N; ++i) {
+        delete[] A[i]; delete[] B[i]; delete[] C[i];
+    }
+    delete[] A; delete[] B; delete[] C;
 
     return 0;
 }
