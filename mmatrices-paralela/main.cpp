@@ -28,27 +28,33 @@ int main() {
     }
 
     int num_threads = 4; // Cambiar para experimentar
-    omp_set_num_threads(num_threads);
 
-    cout << "Multiplicando matrices " << N << "x" << N << " con " << num_threads << " hilos..." << endl;
 
-    auto start = high_resolution_clock::now();
+    vector<int> num_hilos = {2, 4, 8, 16};
+    for (int th: num_hilos){
+        omp_set_num_threads(num_threads);
 
-    #pragma omp parallel for
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            double suma = 0.0;
-            for (int k = 0; k < N; ++k) {
-                suma += A[i][k] * B[k][j];
+        cout << "Multiplicando matrices " << N << "x" << N << " con " << num_threads << " hilos..." << endl;
+
+        auto start = high_resolution_clock::now();
+
+        #pragma omp parallel for
+        for (int i = 0; i < N; ++i) {
+            for (int j = 0; j < N; ++j) {
+                double suma = 0.0;
+                for (int k = 0; k < N; ++k) {
+                    suma += A[i][k] * B[k][j];
+                }
+                C[i][j] = suma;
             }
-            C[i][j] = suma;
         }
+
+        auto stop = high_resolution_clock::now();
+        auto duration = duration_cast<milliseconds>(stop - start);
+
+            cout << "Con "<< th << " números de hilos -> Tiempo paralelo: " << duration.count() << " ms" << endl;
+
     }
-
-    auto stop = high_resolution_clock::now();
-    auto duration = duration_cast<milliseconds>(stop - start);
-
-    cout << "Tiempo paralelo: " << duration.count() << " ms" << endl;
 
     // Liberar memoria
     for (int i = 0; i < N; ++i) {
