@@ -13,6 +13,7 @@ int main(int argc, char **argv) {
     }
 
     int N = atoi(argv[1]);
+    int BLOCK_SIZE = 32; //Tamaño estándar usado en este problema
 
     if (N!=500 && N!=1000 && N!=2000) {
         cerr << "El tamaño debe ser 500, 1000 o 2000" << endl;
@@ -43,11 +44,19 @@ int main(int argc, char **argv) {
 
     auto start = high_resolution_clock::now();
 
-    // --- ALGORITMO SECUENCIAL CLÁSICO ---
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            for (int k = 0; k < N; ++k) {
-                C[i][j] += A[i][k] * B[k][j];
+    // --- ALGORITMO SECUENCIAL PERO CON TILING ---
+    for (int bi = 0; bi < N; bi += BLOCK_SIZE) {
+        for (int bj = 0; bj < N; bj += BLOCK_SIZE) {
+            for (int bk = 0; bk < N; bk += BLOCK_SIZE) {
+                for (int i = bi; i < bi + BLOCK_SIZE && i < N; i++) {
+                    for (int j = bj; j < bj + BLOCK_SIZE && j < N; j++) {
+                        double sum = 0;
+                        for (int k = bk; k < bk + BLOCK_SIZE && k < N; k++) {
+                            sum += A[i][k] * B[k][j];
+                        }
+                        C[i][j] += sum;
+                    }
+                }
             }
         }
     }
