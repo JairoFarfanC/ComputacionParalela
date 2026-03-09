@@ -34,7 +34,7 @@ int main() {
     for (int th: num_hilos){
         omp_set_num_threads(num_threads);
 
-        cout << "Multiplicando matrices " << N << "x" << N << " con " << num_threads << " hilos..." << endl;
+        cout << "Multiplicando matrices " << N << "x" << N << " con " << th << " hilos" << endl;
 
         auto start = high_resolution_clock::now();
 
@@ -52,7 +52,7 @@ int main() {
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<milliseconds>(stop - start);
 
-            cout << "Con "<< th << " números de hilos -> Tiempo paralelo: " << duration.count() << " ms" << endl;
+            cout << "Tiempo total: " << duration.count() << " ms" << endl;
 
     }
 
