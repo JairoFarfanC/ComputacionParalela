@@ -54,20 +54,20 @@ RM = /snap/cmake/1515/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo
+CMAKE_SOURCE_DIR = /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo
+CMAKE_BINARY_DIR = /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Trabajo_Grupo.dir/all
+all: CMakeFiles/mmatrices-secuencial.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
-codegen: CMakeFiles/Trabajo_Grupo.dir/codegen
+codegen: CMakeFiles/mmatrices-secuencial.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -75,40 +75,40 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Trabajo_Grupo.dir/clean
+clean: CMakeFiles/mmatrices-secuencial.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Trabajo_Grupo.dir
+# Target rules for target CMakeFiles/mmatrices-secuencial.dir
 
 # All Build rule for target.
-CMakeFiles/Trabajo_Grupo.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles --progress-num=1,2 "Built target Trabajo_Grupo"
-.PHONY : CMakeFiles/Trabajo_Grupo.dir/all
+CMakeFiles/mmatrices-secuencial.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial/CMakeFiles --progress-num=1,2 "Built target mmatrices-secuencial"
+.PHONY : CMakeFiles/mmatrices-secuencial.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Trabajo_Grupo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Trabajo_Grupo.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles 0
-.PHONY : CMakeFiles/Trabajo_Grupo.dir/rule
+CMakeFiles/mmatrices-secuencial.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/mmatrices-secuencial.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial/CMakeFiles 0
+.PHONY : CMakeFiles/mmatrices-secuencial.dir/rule
 
 # Convenience name for target.
-Trabajo_Grupo: CMakeFiles/Trabajo_Grupo.dir/rule
-.PHONY : Trabajo_Grupo
+mmatrices-secuencial: CMakeFiles/mmatrices-secuencial.dir/rule
+.PHONY : mmatrices-secuencial
 
 # codegen rule for target.
-CMakeFiles/Trabajo_Grupo.dir/codegen:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles --progress-num=1,2 "Finished codegen for target Trabajo_Grupo"
-.PHONY : CMakeFiles/Trabajo_Grupo.dir/codegen
+CMakeFiles/mmatrices-secuencial.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial/CMakeFiles --progress-num=1,2 "Finished codegen for target mmatrices-secuencial"
+.PHONY : CMakeFiles/mmatrices-secuencial.dir/codegen
 
 # clean rule for target.
-CMakeFiles/Trabajo_Grupo.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/clean
-.PHONY : CMakeFiles/Trabajo_Grupo.dir/clean
+CMakeFiles/mmatrices-secuencial.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/clean
+.PHONY : CMakeFiles/mmatrices-secuencial.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

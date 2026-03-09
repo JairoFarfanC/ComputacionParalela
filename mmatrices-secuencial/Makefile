@@ -57,10 +57,10 @@ RM = /snap/cmake/1515/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo
+CMAKE_SOURCE_DIR = /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo
+CMAKE_BINARY_DIR = /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial/CMakeFiles /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Trabajo_Grupo
+# Target rules for targets named mmatrices-secuencial
 
 # Build rule for target.
-Trabajo_Grupo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Trabajo_Grupo
-.PHONY : Trabajo_Grupo
+mmatrices-secuencial: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 mmatrices-secuencial
+.PHONY : mmatrices-secuencial
 
 # fast build rule for target.
-Trabajo_Grupo/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/build
-.PHONY : Trabajo_Grupo/fast
+mmatrices-secuencial/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/build
+.PHONY : mmatrices-secuencial/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,7 +150,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Trabajo_Grupo.dir/build.make CMakeFiles/Trabajo_Grupo.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mmatrices-secuencial.dir/build.make CMakeFiles/mmatrices-secuencial.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Trabajo_Grupo"
+	@echo "... mmatrices-secuencial"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

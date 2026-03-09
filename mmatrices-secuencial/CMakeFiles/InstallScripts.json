@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/xeihtt/Escritorio/computacion-paralela/Trabajo-Grupo/cmake_install.cmake"
+		"/home/xeihtt/Escritorio/computacion-paralela/mmatrices-secuencial/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
