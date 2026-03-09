@@ -27,12 +27,9 @@ int main() {
         }
     }
 
-    int num_threads = 4; // Cambiar para experimentar
-
-
     vector<int> num_hilos = {2, 4, 8, 16};
     for (int th: num_hilos){
-        omp_set_num_threads(num_threads);
+        omp_set_num_threads(th);
 
         cout << "Multiplicando matrices " << N << "x" << N << " con " << th << " hilos" << endl;
 
@@ -52,7 +49,7 @@ int main() {
         auto stop = high_resolution_clock::now();
         auto duration = duration_cast<milliseconds>(stop - start);
 
-            cout << "Tiempo total: " << duration.count() << " ms" << endl;
+        cout << "Tiempo total: " << duration.count() << " ms" << endl;
 
     }
 
