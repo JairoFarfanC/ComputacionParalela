@@ -30,7 +30,7 @@ La CPU no lee datos individuales de la RAM, sino que trae "bloques" (líneas de 
 
 1.3. La Solución: Optimización por Bloques (Tiling)
 
-Para mitigar este problema, implementamos la técnica de Tiling. Esta técnica consiste en:
+Para mitigar este problema, implementamos en la versión secuencial optimizada la técnica de Tiling. Esta técnica consiste en:
 
     Dividir las matrices en sub-matrices (bloques) de tamaño T×T.
 
@@ -40,7 +40,8 @@ Para mitigar este problema, implementamos la técnica de Tiling. Esta técnica c
     Reducción de Latencia: Al mantener los datos "cerca" del procesador, 
     reducimos el tiempo que la CPU pasa ociosa esperando a que los datos lleguen desde la memoria principal (RAM).
 
-Categoría,Causa Técnica,Impacto en el Rendimiento
-Eficiencia de Caché,Acceso por columnas en matriz B.,Bajo aprovechamiento: Se desperdician datos cargados en la línea de caché.
-Latencia,Saltos de memoria (stride) extensos.,CPU Ociosa: El procesador se detiene constantemente esperando datos de la RAM.
-Escalabilidad,Complejidad O(N3) sin localidad.,Cuello de botella: El tiempo de ejecución se dispara al aumentar el tamaño N.
+| Categoría | Causa Técnica | Impacto en el Rendimiento |
+| :--- | :--- | :--- |
+| **Eficiencia de Caché** | Acceso por columnas en matriz B. | **Bajo aprovechamiento:** Se desperdician datos cargados en la línea de caché. |
+| **Latencia** | Saltos de memoria (stride) extensos. | **CPU Ociosa:** El procesador se detiene constantemente esperando datos de la RAM. |
+| **Escalabilidad** | Complejidad O(N^3) sin localidad. | **Cuello de botella:** El tiempo de ejecución se dispara al aumentar el tamaño N. |
