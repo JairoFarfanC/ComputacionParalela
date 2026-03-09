@@ -40,6 +40,8 @@ Para mitigar este problema, implementamos en la versión secuencial optimizada l
     Reducción de Latencia: Al mantener los datos "cerca" del procesador, 
     reducimos el tiempo que la CPU pasa ociosa esperando a que los datos lleguen desde la memoria principal (RAM).
 
+A continuación, una tabla a modo de resumen de los problemas de esta versión:
+
 | Categoría | Causa Técnica | Impacto en el Rendimiento |
 | :--- | :--- | :--- |
 | **Eficiencia de Caché** | Acceso por columnas en matriz B. | **Bajo aprovechamiento:** Se desperdician datos cargados en la línea de caché. |
