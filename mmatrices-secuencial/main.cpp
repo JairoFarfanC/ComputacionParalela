@@ -7,16 +7,23 @@ using namespace std::chrono;
 
 int main(int argc, char **argv) {
 
-    if (argc < 2) {
-        cerr << "Debes introducir el tamaño de la matriz cuadrada, entre 500, 1000 y 2000" << endl;
+    if (argc < 2){
+        std::cout<< "Tienes que ejecutar pasando el tamaño por parámetro, por ejemplo:\n" << std::endl;
+        std::cout<< "./mmatrices_cuda 1024\n" << std::endl;
+
         return -1;
     }
 
-    int N = atoi(argv[1]);
+    int N;
 
-    if (N!=500 && N!=1000 && N!=2000) {
-        cerr << "El tamaño debe ser 500, 1000 o 2000" << endl;
-        return -1;
+    try {
+        N = std::stoi(argv[1]);
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error: El argumento debe ser un número entero." << std::endl;
+        return 1;
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Error: El número es demasiado grande." << std::endl;
+        return 1;
     }
 
     // Creamos la matriz como un array de punteros (Matriz real i,j)
