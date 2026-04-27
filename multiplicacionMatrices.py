@@ -66,7 +66,7 @@ if __name__ == "__main__":
     # Tamaño fijo para gráfico de hilos
     n_fijo = 400                 
     max_hilos = mp.cpu_count()
-    hilos_lista = [1, 2, 4, max_hilos] if max_hilos > 4 else [1, 2, max_hilos]
+    hilos_lista = [2, 4, max_hilos] if max_hilos > 4 else [2, max_hilos]
 
     # Contenedores para datos
     tiempos_clasico = []
