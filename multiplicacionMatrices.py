@@ -61,9 +61,10 @@ def trabajador_paralelo(id_proceso, num_procesos, A, B, N, BS, dict_retorno):
 if __name__ == "__main__":
 
     # --- CONFIGURACIÓN ---
-    tamanos = [100, 200, 400]    # Tamaños para gráficos de tamaño
+    tamanos = [1024, 2048, 4096]    # Tamaños para gráficos de tamaño
     BS = 32                      # Tamaño de bloque
-    n_fijo = 400                 # Tamaño fijo para gráfico de hilos
+    # Tamaño fijo para gráfico de hilos
+    n_fijo = 400                 
     max_hilos = mp.cpu_count()
     hilos_lista = [1, 2, 4, max_hilos] if max_hilos > 4 else [1, 2, max_hilos]
 
