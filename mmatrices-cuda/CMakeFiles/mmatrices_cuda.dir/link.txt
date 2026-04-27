@@ -1,0 +1,1 @@
+/usr/lib/nvidia-cuda-toolkit/bin/g++ -Wl,--dependency-file=CMakeFiles/mmatrices_cuda.dir/link.d @CMakeFiles/mmatrices_cuda.dir/objects1.rsp -o mmatrices_cuda @CMakeFiles/mmatrices_cuda.dir/linkLibs.rsp -L"/usr/lib/x86_64-linux-gnu/stubs" -L"/usr/lib/x86_64-linux-gnu"

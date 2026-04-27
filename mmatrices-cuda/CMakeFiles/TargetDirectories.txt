@@ -1,0 +1,3 @@
+/home/xeihtt/Escritorio/computacion-paralela/mmatrices-cuda/CMakeFiles/mmatrices_cuda.dir
+/home/xeihtt/Escritorio/computacion-paralela/mmatrices-cuda/CMakeFiles/edit_cache.dir
+/home/xeihtt/Escritorio/computacion-paralela/mmatrices-cuda/CMakeFiles/rebuild_cache.dir
