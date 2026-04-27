@@ -9,7 +9,7 @@ int main(int argc, char **argv) {
 
     if (argc < 2){
         std::cout<< "Tienes que ejecutar pasando el tamaño por parámetro, por ejemplo:\n" << std::endl;
-        std::cout<< "./mmatrices_cuda 1024\n" << std::endl;
+        std::cout<< "./mmatrices_secuencial 1024\n" << std::endl;
 
         return -1;
     }
