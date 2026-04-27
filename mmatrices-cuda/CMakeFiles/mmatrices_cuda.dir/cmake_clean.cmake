@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/mmatrices_cuda.dir/link.d"
   "CMakeFiles/mmatrices_cuda.dir/main.cu.o"
   "CMakeFiles/mmatrices_cuda.dir/main.cu.o.d"
   "mmatrices_cuda"

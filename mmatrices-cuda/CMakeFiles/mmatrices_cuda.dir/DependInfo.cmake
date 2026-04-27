@@ -9,7 +9,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xeihtt/Escritorio/computacion-paralela/mmatrices-cuda/main.cu" "CMakeFiles/mmatrices_cuda.dir/main.cu.o" "gcc" "CMakeFiles/mmatrices_cuda.dir/main.cu.o.d"
-  "" "mmatrices_cuda" "gcc" "CMakeFiles/mmatrices_cuda.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

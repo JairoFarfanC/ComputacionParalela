@@ -1,9 +1,7 @@
 #include <iostream>
 #include <cuda_runtime.h>
 
-// El KERNEL: Lo que se ejecuta en la GPU
 __global__ void matrixMulKernel(double* d_A, double* d_B, double* d_C, int N) {
-    // Calculamos la fila y columna que le corresponde a este hilo
     int row = blockIdx.y * blockDim.y + threadIdx.y;
     int col = blockIdx.x * blockDim.x + threadIdx.x;
 
@@ -16,42 +14,74 @@ __global__ void matrixMulKernel(double* d_A, double* d_B, double* d_C, int N) {
     }
 }
 
-int main() {
-    int N = 1024; // Tamaño de la matriz N x N
+int main(int argc, char** argv) {
+
+    if (argc < 2){
+        std::cout<< "Tienes que ejecutar pasando el tamaño por parámetro, por ejemplo:\n" << std::endl;
+        std::cout<< "./mmatrices_cuda 1024\n" << std::endl;
+
+        return -1;
+    }
+
+    int N;
+
+    try {
+        N = std::stoi(argv[1]);
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Error: El argumento debe ser un número entero." << std::endl;
+        return 1;
+    } catch (const std::out_of_range& e) {
+        std::cerr << "Error: El número es demasiado grande." << std::endl;
+        return 1;
+    }
+
     size_t size = N * N * sizeof(double);
 
-    // 1. Reservar memoria en el Host (CPU)
     double *h_A = (double*)malloc(size);
     double *h_B = (double*)malloc(size);
     double *h_C = (double*)malloc(size);
 
-    // Inicializar matrices... (puedes poner valores aleatorios aquí)
+    // Inicialización simple
+    for(int i=0; i<N*N; i++) { h_A[i] = 1.0; h_B[i] = 2.0; }
 
-    // 2. Reservar memoria en el Device (GPU)
     double *d_A, *d_B, *d_C;
     cudaMalloc(&d_A, size);
     cudaMalloc(&d_B, size);
     cudaMalloc(&d_C, size);
 
-    // 3. Copiar datos de la CPU a la GPU
     cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
     cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
 
-    // 4. Configurar la malla de hilos (Grids y Blocks)
-    // Usamos bloques de 16x16 o 32x32 hilos
+    // --- MEDICIÓN DE TIEMPO INICIO ---
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
     dim3 threadsPerBlock(32, 32);
     dim3 blocksPerGrid((N + threadsPerBlock.x - 1) / threadsPerBlock.x,
                        (N + threadsPerBlock.y - 1) / threadsPerBlock.y);
 
-    // 5. Lanzar el Kernel
+    // Registramos el inicio
+    cudaEventRecord(start);
+
     matrixMulKernel<<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, N);
 
-    // 6. Copiar el resultado de vuelta a la CPU
+    // Registramos el final
+    cudaEventRecord(stop);
+    cudaEventSynchronize(stop); // Esperamos a que la GPU termine
+
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+    // --- MEDICIÓN DE TIEMPO FIN ---
+
     cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
 
-    std::cout << "Multiplicación en GPU completada." << std::endl;
+    std::cout << "N: " << N << "x" << N << std::endl;
+    std::cout << "Tiempo de ejecución en GPU: " << milliseconds << " ms" << std::endl;
 
-    // 7. Liberar memoria
+    // Limpieza
+    cudaEventDestroy(start);
+    cudaEventDestroy(stop);
     cudaFree(d_A); cudaFree(d_B); cudaFree(d_C);
     free(h_A); free(h_B); free(h_C);
 
