@@ -1,0 +1,3 @@
+/home/xeihtt/Escritorio/computacion-paralela/mmatrices-optimizada-paralela/CMakeFiles/mmatrices_paralela.dir
+/home/xeihtt/Escritorio/computacion-paralela/mmatrices-optimizada-paralela/CMakeFiles/edit_cache.dir
+/home/xeihtt/Escritorio/computacion-paralela/mmatrices-optimizada-paralela/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/mmatrices_paralela.dir/link.d CMakeFiles/mmatrices_paralela.dir/main.cpp.o -o mmatrices_paralela  /usr/lib/gcc/x86_64-linux-gnu/14/libgomp.so /usr/lib/x86_64-linux-gnu/libpthread.a
